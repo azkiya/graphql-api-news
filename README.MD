@@ -15,7 +15,7 @@ This is a api graphql News
 ## Getting started
 
 1. Clone this repo using `git@github.com:azkiya/graphql-api-news.git`
-2. Move to the appropriate directory: `cd airportid`.
+2. Move to the appropriate directory: `cd graphql-api-news`.
 4. Run `yarn` or `npm install` to install dependencies.
 5. Set `.env` file with your mongoURI.
 6. Run `npm start` to see the example app at `http://localhost:4000/playground`.
@@ -25,5 +25,4 @@ This is a api graphql News
 - `npm start` - start the playground at `http://localhost:4000/playground`
 
 ## License
-
-MIT license, Copyright (c) 2019 Angkasa Pura II.
+- MIT license, Copyright (c) 2019 
