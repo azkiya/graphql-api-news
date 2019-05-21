@@ -4,7 +4,7 @@
 export const userTypeDefs = `
 
   type User {
-    id: ID!
+    id: ID
     name: String
     email: String
     password: String
@@ -27,8 +27,8 @@ export const userTypeDefs = `
 
   # We do not need to check if any of the input parameters exist with a "!" character.
   # This is because mongoose will do this for us, and it also means we can use the same
-  # input on both the "addAirport" and "editAirport" methods.
-  input UsertInput {
+  # input on both the "addAUser" and "editUser" methods.
+  input UserInput {
     name: String
     email: String
     password: String
@@ -46,7 +46,7 @@ export const userTypeDefs = `
 
   # Extending the root Mutation type.
   extend type Mutation {
-    addAUser(input: UserInput!): User
+    addUser(input: UserInput!): User
     editUser(id: String!, input: UserEdit!): User
     deleteUser(id: String!): User
   }
