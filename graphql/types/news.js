@@ -4,10 +4,10 @@
 export const newsTypeDefs = `
 
   type News {
-    id: ID
+    _id: ID!
     title: String
     content: String
-    author: [User]
+    author: User   
     status: String
     topic: [Topic]
     createdAt: String
@@ -33,9 +33,9 @@ export const newsTypeDefs = `
   input NewsInput {
     title: String
     content: String
-    author: String
+    author: ID!
     status: String
-    topic: [String]
+    topic: [ID!]
     createdAt: String
     updatedAt: String
   }
@@ -43,9 +43,9 @@ export const newsTypeDefs = `
   input NewsEdit {
     title: String
     content: String
-    author: String
+    author: ID
     status: String
-    topic: [String]
+    topic: [ID]
     createdAt: String
     updatedAt: String
   }

@@ -6,7 +6,11 @@ import { ApolloServer } from 'apollo-server-express';
 import { makeExecutableSchema } from 'graphql-tools';
 import rootTypeDefs from './graphql/types/root';
 import { userTypeDefs } from './graphql/types/user';
+import { newsTypeDefs } from './graphql/types/news';
+import { topicTypeDefs } from './graphql/types/topic';
 import { userResolvers } from './graphql/resolvers/user';
+import { newsResolvers } from './graphql/resolvers/news';
+import { topicResolvers } from './graphql/resolvers/topic';
 
 import User from './models/user';
 import config from './config/config';
@@ -25,8 +29,8 @@ mongoose.connect(
  * GraphQL types and resolvers.
  */
 const schema = makeExecutableSchema({
-  typeDefs: [ rootTypeDefs, userTypeDefs],
-  resolvers: merge(userResolvers),
+  typeDefs: [ rootTypeDefs, userTypeDefs, newsTypeDefs, topicTypeDefs],
+  resolvers: merge(userResolvers, newsResolvers, topicResolvers),
 });
 
 /**
@@ -55,6 +59,6 @@ const server = new ApolloServer({
 const app = express();
 server.applyMiddleware({ app });
 
-app.listen({ port: 4002 }, () =>
-  console.log(`🚀 Server ready at http://localhost:4002${server.graphqlPath}`)
+app.listen({ port: 4000 }, () =>
+  console.log(`🚀 Server ready at http://localhost:4000${server.graphqlPath}`)
 );

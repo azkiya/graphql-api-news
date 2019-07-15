@@ -4,7 +4,7 @@
 export const userTypeDefs = `
 
   type User {
-    id: ID
+    _id: ID!
     name: String
     email: String
     password: String

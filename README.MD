@@ -22,7 +22,4 @@ This is a api graphql News
 
 ## Commands
 
-- `npm start` - start the playground at `http://localhost:4000/playground`
-
-## License
-- MIT license, Copyright (c) 2019 
+- `npm start` - start the playground at `http://localhost:4000/playground` 

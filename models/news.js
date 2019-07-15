@@ -14,17 +14,15 @@ const NewsSchema = new Schema({
     type: String,
     required: true
   },
-  author: [{ type : ObjectId, ref: 'User' }],
+  author: { type : ObjectId, ref: 'User' },
   Created_date: {
     type: Date,
     default: Date.now
   },
   status: {
-    type: [{
-      type: String,
-      enum: ['draft', 'deleted', 'publish']
-    }],
-    default: ['draft']
+    type: String,
+    enum: ['draft', 'deleted', 'published'],
+    default: 'draft'
   },
   topic: [{ type : ObjectId, ref : 'Topic' }]
 });
