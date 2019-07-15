@@ -12,6 +12,12 @@ export const userTypeDefs = `
     updatedAt: String
   }
 
+  type AuthData {
+    id: ID
+    token: String!
+    tokenExpiration: Int!
+  }
+
   input UserFilterInput {
     limit: Int
   }
@@ -49,5 +55,6 @@ export const userTypeDefs = `
     addUser(input: UserInput!): User
     editUser(id: String!, input: UserEdit!): User
     deleteUser(id: String!): User
+    login(email:String!, password: String!): AuthData
   }
 `;

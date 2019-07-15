@@ -35,5 +35,18 @@ export const userResolvers = {
       const user = await User.findByIdAndUpdate(id);
       return user.toObject();
     },
+    async login(_, { email, password }){
+      const user = await User.findOne({ email });
+      if(!user){
+        throw new Error('User not fount');
+      }
+
+      const match = await bcrypt.compare(password, user.password);
+      if(match){
+        const token = jwt.sign({ id:user.id, email, password }, config.token);
+        return { id: user.id, token, tokenExpiration: 1 };
+      }
+      throw new Error('Not Authorised');
+    }
   },
 };
